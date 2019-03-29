@@ -1,0 +1,59 @@
+body {
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 16px;
+    background: #fff;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+h1 {
+    background-color: red;
+    font-size: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.footer {
+    background-color: red;
+    font-size: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.footer a {
+    color: black;
+}
+
+.row {
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#app img {
+    width: 100px;
+}
+
+.form {
+    padding-top: 50px;
+}
+
+.image {
+    padding: 50px;
+}
+
+#pokeball {
+    width: 300px !important;
+}
+
+.delete {
+    text-align: center;
+    margin-left: auto;
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}

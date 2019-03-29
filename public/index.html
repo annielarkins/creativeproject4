@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css" />
+    <title>The Pokedéx</title>
+    <link rel="icon" type="image/png" href="images/pokeball.png">
+</head>
+
+<body>
+    <h1> Welcome to the Pokédex</h1>
+    <br>
+    <br>
+    <br>
+    <div id="app" class="content">
+        <div v-if="addPokemon">
+            <h2>{{addPokemon.name}}</h2>
+            <img id="pokeball" :src="addPokemon.path" />
+            <h2>{{addPokemon.type}}</h2>
+        </div>
+        <div v-if="editing">
+            <h2>{{editing.name}}</h2>
+            <img id="pokeball" :src="editing.path" />
+            <h2>{{editing.type}}</h2>
+        </div>
+        <div v-if="displayPokeball">
+            <img id="pokeball" src="images/pokeball.png">
+        </div>
+        <div class="add">
+            <div v-if="editing" class="form">
+                <h3> Edit This Entry</h3>
+                <input v-model="editing.name">
+                <input v-model="editing.type" placeholder="Type">
+                <p></p>
+                <input type="file" name="photo" @change="fileChanged">
+                <button @click="editPokemon(editing)">Update</button>
+            </div>
+            <div v-else class="form">
+                <h3> Log New Pokémon You Discover!</h3>
+                <input v-model="name" placeholder="Name">
+                <input v-model="type" placeholder="Type">
+                <p></p>
+                <input type="file" name="photo" @change="fileChanged">
+                <button @click="upload">Log</button>
+            </div>
+            <br>
+            <div class="row">
+                <div class="image" v-for="pokemon in pokemons">
+                    <h2>{{pokemon.name}}</h2>
+                    <img :src="pokemon.path" />
+                    <h5>{{pokemon.type}}</h5>
+                    <button v-on:click="deletePokemon(pokemon)" class="delete">X</button>
+                    <button v-on:click="upperDisplay(pokemon)" class="delete">!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="footer">
+        <a href="https://github.com/annielarkins/creativeproject4">See the Github Repository Here</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js" integrity="sha256-mpnrJ5DpEZZkwkE1ZgkEQQJW/46CSEh/STrZKOB/qoM=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.7/vue.js" integrity="sha256-g+Q8DFAmG5+eyRPSydX0LY4TfjsL11XSDrIGerbbEdA=" crossorigin="anonymous"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>
